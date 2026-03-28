@@ -88,6 +88,117 @@ router.get("/api-documentation", async (req, res) => {
       },
       {
         method: "POST",
+        endpoint: "/api/contact-requests",
+        description: "Create a new contact request",
+        samplePayload: JSON.stringify({
+          name: "John Doe",
+          phoneNumber: "9715789136",
+          email: "john.doe@example.com",
+          organization: "Healthcare Facility",
+          message: "I would like to learn more about your services",
+          scheduledTime: "2025-04-01T10:00:00Z"
+        }, null, 2),
+        sampleResponse: JSON.stringify({
+          success: true,
+          message: "Contact request submitted successfully",
+          data: {
+            id: 1,
+            name: "John Doe",
+            phone_number: "9715789136",
+            email: "john.doe@example.com",
+            organization: "Healthcare Facility",
+            message: "I would like to learn more about your services",
+            scheduled_time: "2025-04-01T10:00:00Z",
+            status: "pending",
+            created_at: "2025-03-26T15:30:00Z"
+          }
+        }, null, 2),
+        statusCodes: "201, 400, 409, 500"
+      },
+      {
+        method: "GET",
+        endpoint: "/api/contact-requests",
+        description: "Get all contact requests with pagination and filtering",
+        samplePayload: "Query: ?page=1&limit=10&status=pending&organization=Healthcare&search=John",
+        sampleResponse: JSON.stringify({
+          success: true,
+          data: [
+            {
+              id: 1,
+              name: "John Doe",
+              phone_number: "9715789136",
+              email: "john.doe@example.com",
+              organization: "Healthcare Facility",
+              message: "I would like to learn more about your services",
+              scheduled_time: "2025-04-01T10:00:00Z",
+              status: "pending",
+              created_at: "2025-03-26T15:30:00Z"
+            }
+          ],
+          pagination: {
+            page: 1,
+            limit: 10,
+            total: 1,
+            pages: 1
+          }
+        }, null, 2),
+        statusCodes: "200, 500"
+      },
+      {
+        method: "GET",
+        endpoint: "/api/contact-requests/:id",
+        description: "Get a single contact request by ID",
+        samplePayload: "Path: /api/contact-requests/1",
+        sampleResponse: JSON.stringify({
+          success: true,
+          data: {
+            id: 1,
+            name: "John Doe",
+            phone_number: "9715789136",
+            email: "john.doe@example.com",
+            organization: "Healthcare Facility",
+            message: "I would like to learn more about your services",
+            scheduled_time: "2025-04-01T10:00:00Z",
+            status: "pending",
+            created_at: "2025-03-26T15:30:00Z"
+          }
+        }, null, 2),
+        statusCodes: "200, 404, 500"
+      },
+      {
+        method: "PATCH",
+        endpoint: "/api/contact-requests/:id/status",
+        description: "Update contact request status",
+        samplePayload: JSON.stringify({
+          status: "contacted"
+        }, null, 2),
+        sampleResponse: JSON.stringify({
+          success: true,
+          message: "Contact request status updated successfully",
+          data: {
+            id: 1,
+            name: "John Doe",
+            phone_number: "9715789136",
+            email: "john.doe@example.com",
+            organization: "Healthcare Facility",
+            status: "contacted"
+          }
+        }, null, 2),
+        statusCodes: "200, 400, 404, 500"
+      },
+      {
+        method: "DELETE",
+        endpoint: "/api/contact-requests/:id",
+        description: "Delete a contact request",
+        samplePayload: "Path: /api/contact-requests/1",
+        sampleResponse: JSON.stringify({
+          success: true,
+          message: "Contact request deleted successfully"
+        }, null, 2),
+        statusCodes: "200, 404, 500"
+      },
+      {
+        method: "POST",
         endpoint: "/api/login",
         description: "Login user and return tokens",
         samplePayload: JSON.stringify({

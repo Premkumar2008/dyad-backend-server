@@ -12,6 +12,7 @@ import apiDocumentationRoute from "./routes/apiDocumentation.js";
 import verifyOtpRoute from "./routes/verifyOtp.js";
 import forgotPasswordRoute from "./routes/forgotPassword.js";
 import testRoute from "./routes/test.js";
+import contactRequestsRoute from "./routes/contactRequests.js";
 
 const app = express();
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use("/api", apiDocumentationRoute);
 app.use("/api", verifyOtpRoute);
 app.use("/api", forgotPasswordRoute);
 app.use("/api", testRoute);
+app.use("/api", contactRequestsRoute);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
