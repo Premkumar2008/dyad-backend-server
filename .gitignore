@@ -21,7 +21,7 @@ coverage/
 .grunt
 
 # Bower dependency directory (https://bower.io/)
-bower_components
+bower_components/
 
 # node-waf configuration
 .lock-wscript
@@ -64,7 +64,8 @@ typings/
 .env.test
 .env.production
 .env.local
-.env.example
+.env.development
+.env.staging
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -145,3 +146,122 @@ Thumbs.db
 # Backup files
 *.bak
 *.backup
+
+# Security sensitive files
+config/local.js
+config/production.js
+config/staging.js
+*.pem
+*.key
+*.crt
+ssl/
+certs/
+
+# Session files
+sessions/
+*.session
+
+# Cache and temp
+.cache/
+tmp/
+temp/
+
+# Build artifacts
+build/
+dist/
+*.tgz
+*.tar.gz
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration files
+config/local.json
+config/local.js
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Backup files
+*.bak
+*.backup
+
+# Security sensitive files
+config/local.js
+config/production.js
+config/staging.js
+*.pem
+*.key
+*.crt
+ssl/
+certs/
